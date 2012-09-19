@@ -1,0 +1,47 @@
+<?php
+namespace Qimnet\SolrClientTestBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Qimnet\SolrClientBundle\Annotation as Solr;
+/**
+ * Doctrine entity used to test automatic 
+ * @ORM\Table()
+ * @ORM\Entity()
+ */
+class TestAutoUpdate {
+    /**
+     * @var int $id 
+     * 
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @Solr\Indexable()
+     */
+    protected $id;
+    
+    /**
+     * @var string $content
+     *
+     * @ORM\Column(type="text")
+     * @Solr\Indexable
+     */
+    protected $content;
+    
+    /**
+     * @var boolean $needs_index
+     * 
+     * @ORM\Column(type="boolean")
+     * @var type 
+     */
+    protected $needs_index;
+    
+    /**
+     * @Solr\Indexable(name="tag")
+     */
+    public function getTags()
+    {
+        return array("tag1", 'tag2');
+    }
+}
+
+?>
