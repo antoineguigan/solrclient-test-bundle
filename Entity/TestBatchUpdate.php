@@ -29,6 +29,7 @@ class TestBatchUpdate {
      * @var boolean $needs_index
      * 
      * @ORM\Column(type="boolean")
+     * @Solr\NeedsIndex
      * @var type 
      */
     protected $needs_index=false;
